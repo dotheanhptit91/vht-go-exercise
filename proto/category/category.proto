@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package categorygrpc;
+
+option go_package = "vht-go/gen/categorygrpc";
+
+// The greeting service definition
+service CategoryService {
+  // Sends a greeting
+  rpc GetCategory (GetCategoryRequest) returns (GetCategoryReply) {}
+}
+
+// The request message containing the user's name
+message GetCategoryRequest {
+  string id = 1;
+}
+
+// The response message containing the greetings
+message GetCategoryReply {
+  Category category = 1;
+}
+
+message Category {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  int32 status = 4;
+}
